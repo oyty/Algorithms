@@ -327,8 +327,9 @@ public final class StdIn {
      * @throws NoSuchElementException if standard input is empty
      */
     public static String readAll() {
-        if (!scanner.hasNextLine())
+        if (!scanner.hasNextLine()) {
             return "";
+        }
 
         String result = scanner.useDelimiter(EVERYTHING_PATTERN).next();
         // not that important to reset delimeter, since now scanner is empty

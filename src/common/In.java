@@ -86,7 +86,7 @@ public final class In {
         scanner.useLocale(LOCALE);
     }
 
-   /**
+   /**Ω
      * Initializes an input stream from a socket.
      *
      * @param  socket the socket
@@ -518,11 +518,13 @@ public final class In {
         // we could use readAll.trim().split(), but that's not consistent
         // since trim() uses characters 0x00..0x20 as whitespace
         String[] tokens = WHITESPACE_PATTERN.split(readAll());
-        if (tokens.length == 0 || tokens[0].length() > 0)
+        if (tokens.length == 0 || tokens[0].length() > 0) {
             return tokens;
+        }
         String[] decapitokens = new String[tokens.length-1];
-        for (int i = 0; i < tokens.length-1; i++)
+        for (int i = 0; i < tokens.length-1; i++) {
             decapitokens[i] = tokens[i+1];
+        }
         return decapitokens;
     }
 
