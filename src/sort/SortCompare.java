@@ -17,10 +17,13 @@ public class SortCompare {
             Selection.sort(a);
         }
         if (alg.equals("Shell")) {
-            /* Shell.sort(a); */
+            Shell.sort(a);
         }
         if (alg.equals("Merge")) {
-            /* Merge.sort(a); */
+            Merge.sort(a);
+        }
+        if (alg.equals("MergeBU")) {
+            MergeBU.sort(a);
         }
         if (alg.equals("Quick")) {
             /* Quick.sort(a); */
@@ -48,11 +51,12 @@ public class SortCompare {
 //        int N = Integer.parseInt(args[2]);
 //        int T = Integer.parseInt(args[3]);
         String alg1 = "Insertion";
-        String alg2 = "Selection";
+        String alg2 = "MergeBU";
         int N = 100000;
         int T = 1;
         double t1 = timeRandomInput(alg1, N, T);
         double t2 = timeRandomInput(alg2, N, T);
+        StdOut.printf("%s is %f   %s is %f \n", alg1, t1, alg2, t2);
         StdOut.printf("For %d random Doubles\n %s is", N, alg1);
         StdOut.printf(" %.1f times faster than %s\n", t2/t1, alg2);
     }

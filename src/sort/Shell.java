@@ -1,15 +1,31 @@
 package sort;
 
-import common.In;
+import common.StdIn;
 import common.StdOut;
 
 /**
  * Created by oyty on 2019/10/8
+ * 希尔排序
  */
-public class Main {
+public class Shell {
 
     public static void sort(Comparable[] a) {
+        int N = a.length;
+        int h = 1;
+        while(h < N/3) {
+            h = 3*h + 1;
+        }
 
+        while(h >= 1) {
+            for(int i=h; i<N; i++) {
+                for(int j=i; j>=h; j-=h) {
+                    if(less(a[j], a[j-h])) {
+                        exch(a, j, j-h);
+                    }
+                }
+            }
+            h = h/3;
+        }
     }
 
     private static boolean less(Comparable v, Comparable w) {
@@ -39,10 +55,14 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String[] a = In.readStrings();
-        sort(a);
-        assert isSorted(a);
-        show(a);
+        int[] a = StdIn.readAllInts();
+        Integer[] b = new Integer[a.length];
+        for(int i=0; i<a.length; i++) {
+            b[i] = Integer.valueOf(a[i]);
+        }
+        sort(b);
+        assert isSorted(b);
+        show(b);
     }
 
 
